@@ -1,0 +1,66 @@
+/* Token desain: warna, tipografi, jarak. Ubah di sini untuk mengganti tampilan seluruh situs. */
+
+:root {
+  --font-sans: "Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Terang: kertas biru-abu, tinta navy, aksen spidol oranye */
+  --paper: #edf1f7;
+  --surface: #f8fafd;
+  --surface-2: #e2e8f1;
+  --ink: #263238;
+  --ink-soft: #46526d;
+  --line: #263238(17, 26, 48, 0.16);
+  --line-strong: #263238(17, 26, 48, 0.42);
+  --grid: rgba(17, 26, 48, 0.06);
+
+  --accent: #c8300d;
+  --accent-hover: #a82507;
+  --on-accent: #ffffff;
+  --ok: #0b7a60;
+  --warn: #9a6200;
+  --bad: #b3162d;
+
+  /* Editor selalu gelap di kedua tema */
+  --code-bg: #263238;
+  --code-bg-2: #37474F;
+  --code-ink: #e6ecfa;
+  --code-soft: #8f9bb8;
+  --code-line: #37474F;
+
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --shadow: 0 1px 0 var(--line), 0 12px 32px -18px rgba(17, 26, 48, 0.35);
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(1.9rem, 1.2rem + 2.4vw, 2.8rem);
+  --step-4: clamp(2.5rem, 1.2rem + 4.4vw, 4.4rem);
+
+  --max: 1200px;
+  --header-h: 68px;
+}
+
+:root[data-theme="dark"] {
+  --paper: #0e1424;
+  --surface: #151d31;
+  --surface-2: #1b2540;
+  --ink: #e9eef8;
+  --ink-soft: #9aa7c4;
+  --line: rgba(233, 238, 248, 0.16);
+  --line-strong: rgba(233, 238, 248, 0.42);
+  --grid: rgba(233, 238, 248, 0.05);
+
+  --accent: #ff7a59;
+  --accent-hover: #ff9477;
+  --on-accent: #1c0a04;
+  --ok: #3dd6ae;
+  --warn: #f2b94b;
+  --bad: #ff7b8c;
+
+  --code-bg: #0a0f1d;
+  --code-bg-2: #121a2f;
+  --shadow: 0 1px 0 var(--line), 0 12px 32px -18px rgba(0, 0, 0, 0.8);
+}

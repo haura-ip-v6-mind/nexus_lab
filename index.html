@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexus</title>
+  <meta name="description" content="Kelas coding web delapan pertemuan dengan kurikulum, editor langsung, kuis, jadwal, dan pelacak tugas.">
+
+  <script src="js/theme-boot.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/playground.css">
+</head>
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#beranda" aria-label="Kelas Kode, kembali ke atas">
+        <span class="brand-mark" aria-hidden="true">{ }</span>
+        <span class="brand-name">Nexus</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a href="#beranda" data-nav>Editor</a>
+        <a href="#kurikulum" data-nav>Kurikulum</a>
+        <a href="#kuis" data-nav>Kuis</a>
+        <a href="#jadwal" data-nav>Jadwal</a>
+        <a href="#tugas" data-nav>Tugas</a>
+      </nav>
+
+      <div class="header-tools">
+        <a class="progress-pill" href="#kurikulum" aria-label="Progres belajar, buka kurikulum">
+          <span class="progress-pill-bar" aria-hidden="true"><span data-progress-bar></span></span>
+          <span data-progress-text>0%</span>
+        </a>
+        <button class="btn btn--small" type="button" id="theme-toggle" aria-pressed="false">Mode gelap</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="konten">
+    <!-- Beranda: penjelasan singkat + editor langsung -->
+    <section class="hero" id="beranda" aria-labelledby="judul-beranda">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1 id="judul-beranda">Belajar web dengan menulis kodenya sendiri.</h1>
+          <p class="lead">Delapan pertemuan dari HTML sampai deploy. Editor langsung ini berjalan di browser, tanpa instal apa pun.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn--solid" id="cta-continue" href="#modul-m1">Mulai dari pertemuan 1</a>
+            <a class="btn" href="#kuis">Kerjakan kuis</a>
+          </div>
+
+          <div class="hero-meter">
+            <p><strong data-progress-done>0</strong> dari <span data-progress-total>0</span> topik selesai</p>
+            <div class="meter" role="progressbar" aria-label="Progres belajar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span data-progress-bar></span>
+            </div>
+          </div>
+
+          <p class="hero-next" id="hero-next"></p>
+        </div>
+
+        <div class="hero-play">
+          <div class="pg" id="playground">
+            <div class="pg-bar">
+              <div class="pg-tabs" role="tablist" aria-label="Berkas kode">
+                <button class="pg-tab" role="tab" type="button" id="tab-html" data-lang="html" aria-selected="true">index.html</button>
+                <button class="pg-tab" role="tab" type="button" id="tab-css" data-lang="css" aria-selected="false" tabindex="-1">style.css</button>
+                <button class="pg-tab" role="tab" type="button" id="tab-js" data-lang="js" aria-selected="false" tabindex="-1">script.js</button>
+              </div>
+              <div class="pg-actions">
+                <label class="sr-only" for="pg-preset">Muat contoh kode</label>
+                <select id="pg-preset" class="pg-select"></select>
+                <button class="btn btn--solid btn--small" type="button" id="pg-run">Jalankan</button>
+              </div>
+            </div>
+
+            <div class="pg-body">
+              <div class="pg-editor">
+                <textarea id="pg-code" spellcheck="false" autocomplete="off" autocapitalize="off" aria-labelledby="tab-html"></textarea>
+                <p class="pg-hint">Tab untuk indentasi. Ctrl atau Cmd + Enter untuk menjalankan.</p>
+              </div>
+
+              <div class="pg-output">
+                <iframe id="pg-frame" title="Hasil kode" sandbox="allow-scripts"></iframe>
+                <div class="pg-console">
+                  <div class="pg-console-head">
+                    <span>Konsol</span>
+                    <button class="pg-link" type="button" id="pg-clear">Bersihkan</button>
+                  </div>
+                  <ol id="pg-log" class="pg-log" aria-live="polite" aria-label="Keluaran konsol"></ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kurikulum -->
+    <section class="section" id="kurikulum" aria-labelledby="judul-kurikulum">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="judul-kurikulum">Kurikulum</h2>
+          <p class="lead">Centang topik yang sudah kamu kuasai. Progres tersimpan di browser ini.</p>
+        </div>
+
+        <div class="chips" role="group" aria-label="Filter tingkat" id="level-filter">
+          <button class="chip" type="button" data-level="semua" aria-pressed="true">Semua</button>
+          <button class="chip" type="button" data-level="Pemula" aria-pressed="false">Pemula</button>
+          <button class="chip" type="button" data-level="Menengah" aria-pressed="false">Menengah</button>
+          <button class="chip" type="button" data-level="Lanjut" aria-pressed="false">Lanjut</button>
+        </div>
+
+        <div class="module-list" id="curriculum-list"></div>
+      </div>
+    </section>
+
+    <!-- Kuis -->
+    <section class="section section--tint" id="kuis" aria-labelledby="judul-kuis">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="judul-kuis">Kuis latihan</h2>
+          <p class="lead">Pilih materi, jawab satu per satu, dan baca penjelasannya setelah setiap soal.</p>
+        </div>
+        <div class="quiz" id="quiz-root"></div>
+      </div>
+    </section>
+
+    <!-- Jadwal -->
+    <section class="section" id="jadwal" aria-labelledby="judul-jadwal">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="judul-jadwal">Jadwal kelas</h2>
+          <p class="lead">Waktu mengikuti zona waktu perangkatmu.</p>
+        </div>
+
+        <div class="next-session" id="next-session"></div>
+
+        <h3 class="subhead">Pola mingguan</h3>
+        <div class="week" id="week-grid"></div>
+
+        <h3 class="subhead">Semua pertemuan</h3>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- Tugas -->
+    <section class="section section--tint" id="tugas" aria-labelledby="judul-tugas">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="judul-tugas">Tugas</h2>
+          <p class="lead">Proyek tiap pertemuan sudah dimasukkan. Tambah, ubah, atau hapus sesukamu.</p>
+        </div>
+
+        <form class="task-form" id="task-form" novalidate>
+          <div class="field field--grow">
+            <label for="task-title">Judul tugas</label>
+            <input id="task-title" name="title" type="text" maxlength="120" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="task-module">Pertemuan</label>
+            <select id="task-module" name="module"></select>
+          </div>
+          <div class="field">
+            <label for="task-due">Tenggat</label>
+            <input id="task-due" name="due" type="date">
+          </div>
+          <button class="btn btn--solid" type="submit">Tambah tugas</button>
+          <p class="form-error" id="task-error" role="alert"></p>
+        </form>
+
+        <div class="task-toolbar">
+          <div class="chips" role="group" aria-label="Filter status" id="task-filter">
+            <button class="chip" type="button" data-task-filter="semua" aria-pressed="true">Semua</button>
+            <button class="chip" type="button" data-task-filter="todo" aria-pressed="false">Belum</button>
+            <button class="chip" type="button" data-task-filter="doing" aria-pressed="false">Dikerjakan</button>
+            <button class="chip" type="button" data-task-filter="done" aria-pressed="false">Selesai</button>
+          </div>
+          <div class="field field--inline">
+            <label for="task-sort">Urutkan</label>
+            <select id="task-sort">
+              <option value="tenggat">Tenggat terdekat</option>
+              <option value="terbaru">Terbaru dulu</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="task-summary" id="task-summary" aria-live="polite"></p>
+        <ul class="task-list" id="task-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>@2026.Nexus</p>
+      <button class="btn btn--small" type="button" id="reset-data">Hapus data tersimpan</button>
+    </div>
+  </footer>
+
+  <!-- Data -->
+  <script src="js/data/config.js" defer></script>
+  <script src="js/data/curriculum.js" defer></script>
+  <script src="js/data/quiz.js" defer></script>
+  <script src="js/data/snippets.js" defer></script>
+
+  <!-- Inti -->
+  <script src="js/core/dom.js" defer></script>
+  <script src="js/core/store.js" defer></script>
+
+  <!-- Fitur -->
+  <script src="js/features/theme.js" defer></script>
+  <script src="js/features/nav.js" defer></script>
+  <script src="js/features/progress.js" defer></script>
+  <script src="js/features/playground.js" defer></script>
+  <script src="js/features/curriculum.js" defer></script>
+  <script src="js/features/quiz.js" defer></script>
+  <script src="js/features/schedule.js" defer></script>
+  <script src="js/features/tasks.js" defer></script>
+  <script src="js/features/footer.js" defer></script>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
