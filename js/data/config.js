@@ -13,14 +13,14 @@
     startDate: '2026-10-27',
     weekly: [
       {
-        day: 2,
-        start: '19:00',
-        end: '21:00',
+        day: 6,
+        start: '14:00',
+        end: '16:00',
         title: 'Sesi live',
         note: 'Materi baru, demo kode, dan tanya jawab.'
       },
       {
-        day: 6,
+        day: 7,
         start: '09:00',
         end: '11:30',
         title: 'Lab mandiri',
