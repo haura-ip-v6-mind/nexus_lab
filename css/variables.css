@@ -14,12 +14,12 @@
   --line-strong: #263238(17, 26, 48, 0.42);
   --grid: #263238(17, 26, 48, 0.06);
 
-  --accent: #c8300d;
-  --accent-hover: #a82507;
+  --accent: #546e7a;
+  --accent-hover: #37474e;
   --on-accent: #ffffff;
   --ok: #0b7a60;
   --warn: #9a6200;
-  --bad: #b3162d;
+  --bad: #455a64;
 
   /* Editor selalu gelap di kedua tema */
   --code-bg: #263238;
